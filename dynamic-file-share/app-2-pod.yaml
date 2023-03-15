@@ -1,7 +1,10 @@
 kind: Pod
 apiVersion: v1
 metadata:
+  namespace: d-file-lrs
   name: nginx-2
+  annotations:
+    backup.velero.io/backup-volumes: volume #annotation for velero Restic (filesystem backup): use volumename as value
 spec:
   containers:
   - name: mypod
